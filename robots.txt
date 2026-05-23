@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# No indexar páginas de proceso interno
+Disallow: /solicitud.html
+Disallow: /gracias-trabajadora.html
+Disallow: /gracias-familia.html
+
+# Sitemap
+Sitemap: https://empleadasporhoras.es/sitemap.xml

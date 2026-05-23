@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuéntanos qué necesitas | EmpleadasPorHoras.es</title>
+  <meta name="description" content="Rellena este formulario tras tu pago para que podamos encontrar la empleada doméstica perfecta para tu hogar en Madrid Oeste.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="nav">
+      <a href="index.html" class="nav-logo" aria-label="Inicio">
+        <div class="nav-logo-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="white" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">EmpleadasPorHoras</span>
+          <span class="nav-logo-sub">.es</span>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" style="margin-left:auto;">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="badge badge-mint" style="margin-bottom:1rem;">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="#2A9D8F" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"/></svg>
+        Pago recibido correctamente
+      </div>
+      <h1>Un paso m&aacute;s: cu&eacute;ntanos qu&eacute; necesitas</h1>
+      <p class="lead">Rellena este formulario para que podamos seleccionar la trabajadora que mejor encaje. Recibirás su contacto en menos de 24 horas laborables.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="max-width:700px;margin:0 auto;">
+        <div class="form-wrapper">
+          <div class="form-title">Formulario de solicitud</div>
+          <div class="form-subtitle">Usa el mismo email que usaste al pagar en Stripe para que podamos cruzar los datos.</div>
+
+          <!--
+          ============================================================
+          INSTRUCCIONES MAKE.COM:
+          1. Ve a make.com e inicia sesión.
+          2. Crea un nuevo Escenario para "solicitudes de familias".
+          3. Añade módulo "Webhooks > Custom Webhook".
+          4. Copia la URL y pégala en el action del formulario.
+          5. Añade: Google Sheets (añadir fila en hoja "Solicitudes") + Gmail (notificar a g87tato@gmail.com).
+          ============================================================
+          -->
+          <form
+            action="https://hook.eu1.make.com/TU_WEBHOOK_SOLICITUDES_AQUI"
+            method="POST"
+            id="solicitudForm"
+          >
+            <input type="hidden" name="formulario" value="solicitud-familia">
+            <input type="hidden" name="fecha" id="fechaSolicitud">
+
+            <div class="form-section-title">Tus datos de contacto</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nombre">Nombre y apellidos <span class="req">*</span></label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="El mismo email que usaste en Stripe" autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono <span class="req">*</span></label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="6XX XXX XXX" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="zona">Zona donde necesitas el servicio <span class="req">*</span></label>
+                <select id="zona" name="zona" required>
+                  <option value="" disabled selected>Selecciona zona...</option>
+                  <option value="pozuelo">Pozuelo de Alarcón</option>
+                  <option value="boadilla">Boadilla del Monte</option>
+                  <option value="majadahonda">Majadahonda</option>
+                  <option value="las-rozas">Las Rozas de Madrid</option>
+                  <option value="aravaca">Aravaca</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-section-title">Tipo de servicio</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="servicio">¿Qué tipo de servicio buscas? <span class="req">*</span></label>
+                <select id="servicio" name="servicio" required>
+                  <option value="" disabled selected>Selecciona...</option>
+                  <option value="limpieza-horas">Limpieza por horas</option>
+                  <option value="interna">Empleada interna (vive en el hogar)</option>
+                  <option value="cuidado-mayores">Cuidado de mayores</option>
+                  <option value="cuidado-ninos">Cuidado de niños / babysitter</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inicio">¿Cuándo necesitas el servicio? <span class="req">*</span></label>
+                <select id="inicio" name="inicio" required>
+                  <option value="" disabled selected>Selecciona...</option>
+                  <option value="urgente">Lo antes posible (esta semana)</option>
+                  <option value="este-mes">Este mes</option>
+                  <option value="proximo-mes">El próximo mes</option>
+                  <option value="flexible">Fecha flexible</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-section-title">Horario y detalles del hogar</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Horario preferido</label>
+                <div class="check-group">
+                  <label class="check-item"><input type="checkbox" name="horario[]" value="mananas"> Mañanas</label>
+                  <label class="check-item"><input type="checkbox" name="horario[]" value="tardes"> Tardes</label>
+                  <label class="check-item"><input type="checkbox" name="horario[]" value="jornada-completa"> Jornada completa</label>
+                  <label class="check-item"><input type="checkbox" name="horario[]" value="fines-semana"> Fines de semana</label>
+                  <label class="check-item"><input type="checkbox" name="horario[]" value="flexible"> Flexible</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>¿Necesita hablar algún idioma?</label>
+                <div class="check-group">
+                  <label class="check-item"><input type="checkbox" name="idioma[]" value="ingles"> Inglés</label>
+                  <label class="check-item"><input type="checkbox" name="idioma[]" value="frances"> Francés</label>
+                  <label class="check-item"><input type="checkbox" name="idioma[]" value="portugues"> Portugués</label>
+                  <label class="check-item"><input type="checkbox" name="idioma[]" value="no-necesario"> No es necesario</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="personas">Personas en el hogar</label>
+                <select id="personas" name="personas">
+                  <option value="" disabled selected>Selecciona...</option>
+                  <option value="1">1 persona</option>
+                  <option value="2">2 personas</option>
+                  <option value="3-4">3 o 4 personas</option>
+                  <option value="5+">5 o más personas</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>¿Hay mascotas en el hogar?</label>
+                <div class="check-group">
+                  <label class="radio-item"><input type="radio" name="mascotas" value="si"> Sí</label>
+                  <label class="radio-item"><input type="radio" name="mascotas" value="no"> No</label>
+                </div>
+              </div>
+              <div class="form-group col-span-2">
+                <label for="detalles">Información adicional <span class="req">*</span></label>
+                <textarea id="detalles" name="detalles" required placeholder="Cuéntanos más: tipo de vivienda, tareas específicas, días concretos que necesitas, si tienes niños mayores, si hay algún requisito especial..."></textarea>
+                <small>Cuanto más detallado, mejor podremos seleccionar el perfil adecuado.</small>
+              </div>
+            </div>
+
+            <div class="form-section-title">Consentimiento</div>
+            <div class="consent-box">
+              <input type="checkbox" id="privacidad" name="privacidad" value="acepta" required>
+              <label for="privacidad">He leído y acepto la <a href="politica-privacidad.html" target="_blank">Política de privacidad</a> y los <a href="terminos-condiciones.html" target="_blank">Términos y condiciones</a>. Entiendo que EmpleadasPorHoras.es facilita el contacto con una trabajadora pero no es el empleador ni garantiza la relación laboral. <span class="req">*</span></label>
+            </div>
+
+            <div class="mt-3">
+              <button type="submit" class="btn btn-primary btn-lg btn-full">Enviar solicitud &rarr;</button>
+            </div>
+            <p class="small muted text-center mt-2">Recibirás los datos de contacto de la trabajadora en tu email en menos de 24 horas laborables.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER MÍNIMO -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="padding:1.5rem 0;">
+      <span>&copy; 2025 EmpleadasPorHoras.es</span>
+      <div class="footer-legal">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="politica-privacidad.html">Privacidad</a>
+        <a href="terminos-condiciones.html">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('fechaSolicitud').value = new Date().toLocaleString('es-ES');
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('siteHeader').classList.toggle('nav-open');
+  });
+</script>
+</body>
+</html>

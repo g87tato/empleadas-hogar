@@ -297,6 +297,16 @@
     localStorage.setItem('eph-cookies','1'); banner.style.display = 'none';
   });
   document.getElementById('fechaBusqueda').value = new Date().toLocaleString('es-ES');
+  var busquedaForm = document.getElementById('busquedaForm');
+  busquedaForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = busquedaForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    document.getElementById('fechaBusqueda').value = new Date().toLocaleString('es-ES');
+    fetch(busquedaForm.action, { method: 'POST', body: new FormData(busquedaForm) })
+      .finally(function() { window.location.href = 'gracias-familia.html'; });
+  });
 </script>
 </body>
 </html>

@@ -353,8 +353,17 @@
   document.getElementById('cookieAccept').addEventListener('click', function() {
     localStorage.setItem('eph-cookies','1'); banner.style.display = 'none';
   });
-  // Añade fecha actual al enviar
   document.getElementById('fechaRegistro').value = new Date().toLocaleString('es-ES');
+  var registroForm = document.getElementById('registroForm');
+  registroForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = registroForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    document.getElementById('fechaRegistro').value = new Date().toLocaleString('es-ES');
+    fetch(registroForm.action, { method: 'POST', body: new FormData(registroForm) })
+      .finally(function() { window.location.href = 'gracias-trabajadora.html'; });
+  });
 </script>
 </body>
 </html>

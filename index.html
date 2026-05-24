@@ -56,7 +56,7 @@
         "name": "¿Cómo encuentro una empleada doméstica en Pozuelo de Alarcón?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Busca en nuestro directorio, selecciona el perfil que encaje con tus necesidades, paga la gestión de 39 € y recibirás los datos de contacto directos de la trabajadora en menos de 24 horas."
+          "text": "Envía tu búsqueda gratis en nuestro directorio. Si encontramos una trabajadora que encaje con tus necesidades, te enviamos un enlace de pago de 57 € y recibirás el contacto directo en menos de 24 horas. Si no hay match, no pagas nada."
         }
       },
       {
@@ -64,7 +64,7 @@
         "name": "¿Cuánto cuesta contratar a una empleada de hogar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nuestra gestión de contacto cuesta 39 € (pago único). El acuerdo de condiciones, horario y salario lo cierras directamente con la trabajadora."
+          "text": "La búsqueda es gratis. Solo pagas 57 € si encontramos una candidata disponible para tu zona y perfil. El acuerdo de condiciones, horario y salario lo cierras directamente con la trabajadora."
         }
       },
       {
@@ -137,6 +137,26 @@
     </div>
   </nav>
 </header>
+
+<!-- DOS CAMINOS -->
+<section class="path-section">
+  <div class="container">
+    <div class="path-cards">
+      <div class="path-card path-card-family">
+        <div class="path-card-label">Para familias</div>
+        <h3>Busco empleada de hogar</h3>
+        <p>Cuéntanos qué necesitas, es gratis. Buscamos el perfil ideal en nuestro directorio. Solo pagas <strong>57 &euro;</strong> cuando encontramos tu match.</p>
+        <a href="buscar-empleada.html" class="btn btn-primary">Enviar mi búsqueda gratis &rarr;</a>
+      </div>
+      <div class="path-card path-card-worker">
+        <div class="path-card-label">Para trabajadoras</div>
+        <h3>Busco empleo en el hogar</h3>
+        <p>Date de alta en nuestro directorio en 5 minutos. Completamente gratis, sin comisiones. Familias de Pozuelo, Boadilla, Majadahonda, Las Rozas y Aravaca.</p>
+        <a href="darse-de-alta.html" class="btn btn-white">Registrarme gratis &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- BARRA DE ZONAS -->
 <div class="zones-strip">
@@ -269,18 +289,18 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h3>Dinos qué necesitas</h3>
-          <p>Rellena el formulario indicando zona, tipo de servicio, horario y cualquier requisito especial.</p>
+          <h3>Cuéntanos qué necesitas</h3>
+          <p>Rellena el formulario gratis indicando zona, tipo de servicio, horario y requisitos. Sin pagar nada todavía.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>Paga la gestión (39&nbsp;€)</h3>
-          <p>Un único pago de 39 &euro; por Stripe. Sin suscripciones, sin comisiones ocultas, sin permanencia.</p>
+          <h3>Buscamos tu match</h3>
+          <p>Revisamos nuestro directorio y encontramos la trabajadora que mejor encaja. Te avisamos cuando la tengamos.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h3>Recibe el contacto directo</h3>
-          <p>En menos de 24 horas laborables recibes los datos de la trabajadora y os ponéis en contacto directamente.</p>
+          <h3>Pagas 57&nbsp;€ y recibes el contacto</h3>
+          <p>Solo si hay match, te enviamos un enlace de pago. Pagas 57 &euro; y recibes el contacto directo de la trabajadora.</p>
         </div>
       </div>
       <div class="text-center mt-4">
@@ -445,7 +465,7 @@
         <details class="faq-item">
           <summary>¿Cómo funciona exactamente el directorio?</summary>
           <div class="faq-body">
-            <p>EmpleadasPorHoras.es es un tablón de contactos digital: las trabajadoras se registran gratis y las familias pagan 39 &euro; para recibir los datos de contacto de una trabajadora que encaje con su búsqueda. El acuerdo de condiciones, salario y contrato lo cierran directamente entre familia y trabajadora. Nosotros no somos el empleador ni intervenimos en la relación laboral.</p>
+            <p>EmpleadasPorHoras.es es un tablón de contactos digital: las trabajadoras se registran gratis y las familias pagan 57 &euro; para recibir los datos de contacto de una trabajadora que encaje con su búsqueda. El acuerdo de condiciones, salario y contrato lo cierran directamente entre familia y trabajadora. Nosotros no somos el empleador ni intervenimos en la relación laboral.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -455,9 +475,9 @@
           </div>
         </details>
         <details class="faq-item">
-          <summary>¿Son 39 € por mes o por cada contacto?</summary>
+          <summary>¿Son 57 € por mes o por cada contacto?</summary>
           <div class="faq-body">
-            <p>Son 39 &euro; por cada solicitud de contacto, pago único. No hay suscripciones ni cargos recurrentes. Una vez que tienes el contacto de la trabajadora, el acuerdo laboral es directo entre vosotros, sin más costes por nuestra parte.</p>
+            <p>Son 57 &euro; por cada contacto, pago único y solo si encontramos match. No hay suscripciones ni cargos recurrentes. Si enviás la búsqueda y no tenemos candidata disponible, no se genera ningún cargo.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -560,6 +580,12 @@
     </div>
   </div>
 </footer>
+
+<!-- BARRA FLOTANTE TRABAJADORAS (solo móvil) -->
+<div class="worker-float" id="workerFloat">
+  <p>¿Buscas empleo? <strong>Regístrate gratis</strong></p>
+  <a href="darse-de-alta.html" class="btn btn-primary btn-sm">Alta gratis &rarr;</a>
+</div>
 
 <script>
   // Hamburger menu

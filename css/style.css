@@ -1,5 +1,6 @@
 /* ============================================================
    EmpleadasPorHoras.es — Hoja de estilos principal
+   v2: nuevo modelo sin pago previo, 57 €, two-path hero
    Paleta: Blanco + Mint #2A9D8F | Tipografía: Inter
    ============================================================ */
 
@@ -868,6 +869,45 @@ textarea { resize: vertical; min-height: 120px; }
   padding: 1rem 0;
   border-top: 1px solid rgba(255,255,255,.05);
   line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   19b. DOS CAMINOS — sección de elección de perfil
+   ---------------------------------------------------------- */
+.path-section { padding: 2.5rem 0; background: var(--c-bg); }
+.path-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.path-card {
+  border-radius: var(--r-lg);
+  padding: 2.25rem 2rem;
+  display: flex; flex-direction: column; gap: 1.125rem;
+}
+.path-card-family { background: var(--c-primary-xl); border: 2px solid var(--c-primary-l); }
+.path-card-worker { background: var(--c-dark); border: 2px solid var(--c-dark); }
+.path-card-worker h3, .path-card-worker p { color: var(--c-white); }
+.path-card-worker p { opacity: .82; }
+.path-card-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; }
+.path-card-family .path-card-label { color: var(--c-primary-d); }
+.path-card-worker .path-card-label { color: rgba(255,255,255,.55); }
+.path-card h3 { font-size: 1.3rem; margin-bottom: .25rem; }
+.path-card p  { font-size: .9375rem; }
+.path-card .btn { align-self: flex-start; }
+
+/* Barra flotante trabajadoras en móvil */
+.worker-float {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0; z-index: 150;
+  background: var(--c-dark);
+  padding: .875rem 1.25rem;
+  align-items: center; justify-content: space-between; gap: 1rem;
+  box-shadow: 0 -2px 12px rgba(0,0,0,.18);
+}
+.worker-float p { color: rgba(255,255,255,.85); font-size: .875rem; margin: 0; }
+
+@media (max-width: 640px) {
+  .path-cards { grid-template-columns: 1fr; }
+  .worker-float { display: flex; }
+  body { padding-bottom: 72px; }
 }
 
 /* ----------------------------------------------------------

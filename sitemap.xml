@@ -50,6 +50,63 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Blog -->
+  <url>
+    <loc>https://empleadasporhoras.es/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/cuanto-cobra-empleada-domestica-pozuelo-2025.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/empleada-interna-boadilla-del-monte.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/cuidadora-mayores-majadahonda.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/limpieza-por-horas-aravaca.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/contrato-empleada-hogar-pozuelo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/seguridad-social-empleada-hogar-madrid-oeste.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/externa-vs-interna-majadahonda.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/cuidadora-ninos-boadilla-pozuelo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/primera-empleada-hogar-aravaca.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://empleadasporhoras.es/blog/limpieza-profunda-hogar-madrid-oeste.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Páginas legales -->
   <url>
     <loc>https://empleadasporhoras.es/aviso-legal.html</loc>

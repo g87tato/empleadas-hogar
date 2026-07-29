@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) + Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    if (localStorage.getItem('eph-consent') === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6EENB0CTH"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-G6EENB0CTH');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Política de Cookies | EmpleadasPorHoras.es</title>
@@ -40,7 +59,7 @@
         <p>Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten al sitio recordar sus preferencias y mejorar su experiencia de navegación.</p>
 
         <h2>2. Cookies que utiliza este sitio web</h2>
-        <p>EmpleadasPorHoras.es utiliza únicamente <strong>cookies propias</strong> de carácter técnico:</p>
+        <p>EmpleadasPorHoras.es utiliza <strong>cookies propias</strong> de carácter técnico y, previo consentimiento, <strong>cookies de terceros</strong> de analítica (Google Analytics):</p>
 
         <div style="overflow-x:auto;margin:1.5rem 0;">
           <table style="width:100%;border-collapse:collapse;font-size:.875rem;">
@@ -54,20 +73,32 @@
             </thead>
             <tbody>
               <tr>
-                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);"><code>eph-cookies</code></td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);"><code>eph-consent</code></td>
                 <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Técnica / propia</td>
-                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Recordar que el usuario ha aceptado el aviso de cookies.</td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Recordar la decisión del usuario sobre el aviso de cookies (aceptar/rechazar).</td>
                 <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Persistente (localStorage)</td>
+              </tr>
+              <tr>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);"><code>_ga</code></td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Analítica / tercero (Google)</td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Distinguir usuarios para estadísticas de uso del sitio (Google Analytics).</td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">2 años</td>
+              </tr>
+              <tr>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);"><code>_ga_*</code></td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Analítica / tercero (Google)</td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">Mantener el estado de la sesión de análisis (Google Analytics 4).</td>
+                <td style="padding:.75rem 1rem;border:1px solid var(--c-border);">2 años</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <p>Esta cookie es <strong>estrictamente necesaria</strong> para el funcionamiento básico del sitio y no requiere consentimiento previo conforme al artículo 22.2 LSSICE.</p>
+        <p>La cookie <code>eph-consent</code> es <strong>estrictamente necesaria</strong> para el funcionamiento básico del sitio y no requiere consentimiento previo conforme al artículo 22.2 LSSICE. Las cookies de Google Analytics <strong>no se instalan hasta que el usuario pulsa "Aceptar"</strong> en el aviso de cookies; si pulsa "Rechazar" o no interactúa, no se cargan.</p>
 
         <h2>3. Cookies de terceros</h2>
+        <p>Este sitio utiliza <strong>Google Analytics</strong> (Google Ireland Limited) para obtener estadísticas de uso agregadas y anónimas, únicamente si el usuario ha dado su consentimiento. Puede consultar la política de privacidad de Google en <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
         <p>Al realizar el pago a través de Stripe, este proveedor puede instalar sus propias cookies. Consulte la política de privacidad de Stripe: <a href="https://stripe.com/es/privacy" target="_blank" rel="noopener">stripe.com/es/privacy</a>.</p>
-        <p>Si en el futuro se incorporaran herramientas de analítica web (como Google Analytics), se actualizará esta política y se solicitará el consentimiento previo.</p>
 
         <h2>4. Cómo desactivar las cookies</h2>
         <p>Puede configurar su navegador para bloquear o eliminar las cookies. A continuación encontrará instrucciones para los navegadores más comunes:</p>

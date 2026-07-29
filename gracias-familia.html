@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) + Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    if (localStorage.getItem('eph-consent') === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6EENB0CTH"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-G6EENB0CTH');
+    gtag('event', 'generate_lead', { event_category: 'formulario', event_label: 'solicitud_familia' });
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>¡Solicitud enviada! | EmpleadasPorHoras.es</title>

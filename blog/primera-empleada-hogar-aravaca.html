@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) + Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    if (localStorage.getItem('eph-consent') === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6EENB0CTH"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-G6EENB0CTH');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contratar tu primera empleada de hogar en Aravaca: guía paso a paso | EmpleadasPorHoras.es</title>
@@ -39,8 +58,8 @@
 </head>
 <body>
 <div class="cookie-banner" id="cookieBanner" role="alert">
-  <p>Usamos cookies propias para mejorar tu experiencia. <a href="../politica-cookies.html">Más información</a>.</p>
-  <div class="cookie-actions"><button class="btn btn-sm btn-primary" id="cookieAccept">Aceptar</button></div>
+  <p>Usamos cookies propias y de analítica para mejorar tu experiencia. <a href="../politica-cookies.html">Más información</a>.</p>
+  <div class="cookie-actions"><button class="btn btn-sm btn-primary" id="cookieAccept">Aceptar</button> <button class="btn btn-sm btn-outline" id="cookieReject" style="color:#fff;border-color:rgba(255,255,255,.3)">Rechazar</button></div>
 </div>
 <header class="site-header" id="siteHeader">
   <div class="container">
@@ -161,8 +180,16 @@
     this.setAttribute('aria-expanded', open);
   });
   const cb = document.getElementById('cookieBanner');
-  if (localStorage.getItem('cookiesOk')) cb.style.display = 'none';
-  document.getElementById('cookieAccept').addEventListener('click', () => { localStorage.setItem('cookiesOk','1'); cb.style.display='none'; });
+  if (localStorage.getItem('eph-consent')) cb.style.display = 'none';
+  document.getElementById('cookieAccept').addEventListener('click', function() {
+    localStorage.setItem('eph-consent', 'granted');
+    if (typeof gtag === 'function') { gtag('consent', 'update', { analytics_storage: 'granted' }); }
+    cb.style.display = 'none';
+  });
+  document.getElementById('cookieReject').addEventListener('click', function() {
+    localStorage.setItem('eph-consent', 'denied');
+    cb.style.display = 'none';
+  });
 </script>
 </body>
 </html>

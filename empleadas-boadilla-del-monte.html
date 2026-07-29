@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) + Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    if (localStorage.getItem('eph-consent') === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6EENB0CTH"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-G6EENB0CTH');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empleada Doméstica en Boadilla del Monte | Limpieza e Internas | EmpleadasPorHoras.es</title>
@@ -15,7 +34,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="cookie-banner" id="cookieBanner" role="alert"><p>Usamos cookies propias. <a href="politica-cookies.html">Más info</a>.</p><div class="cookie-actions"><button class="btn btn-sm btn-primary" id="cookieAccept">Aceptar</button></div></div>
+<div class="cookie-banner" id="cookieBanner" role="alert"><p>Usamos cookies propias y de analítica. <a href="politica-cookies.html">Más info</a>.</p><div class="cookie-actions"><button class="btn btn-sm btn-primary" id="cookieAccept">Aceptar</button> <button class="btn btn-sm btn-outline" id="cookieReject" style="color:#fff;border-color:rgba(255,255,255,.3)">Rechazar</button></div></div>
 <header class="site-header" id="siteHeader">
   <div class="container"><div class="nav">
     <a href="index.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path fill="white" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div><div class="nav-logo-text"><span class="nav-logo-main">EmpleadasPorHoras</span><span class="nav-logo-sub">.es</span></div></a>
@@ -90,6 +109,14 @@
   <div class="footer-bottom"><span>&copy; 2025 EmpleadasPorHoras.es &mdash; Antonio Rodríguez</span><div class="footer-legal"><a href="aviso-legal.html">Aviso legal</a><a href="politica-privacidad.html">Privacidad</a></div></div>
   <div class="footer-disclaimer">EmpleadasPorHoras.es es un tablón de anuncios digital. No somos agencia de colocación ni empleador.</div>
 </div></footer>
-<script>var h=document.getElementById('siteHeader');document.getElementById('hamburger').addEventListener('click',function(){var o=h.classList.toggle('nav-open');this.setAttribute('aria-expanded',o);});var b=document.getElementById('cookieBanner');if(!localStorage.getItem('eph-cookies')){b.style.display='flex';}document.getElementById('cookieAccept').addEventListener('click',function(){localStorage.setItem('eph-cookies','1');b.style.display='none';});</script>
+<script>var h=document.getElementById('siteHeader');document.getElementById('hamburger').addEventListener('click',function(){var o=h.classList.toggle('nav-open');this.setAttribute('aria-expanded',o);});var b=document.getElementById('cookieBanner');if(!localStorage.getItem('eph-consent')){b.style.display='flex';}document.getElementById('cookieAccept').addEventListener('click', function() {
+    localStorage.setItem('eph-consent', 'granted');
+    if (typeof gtag === 'function') { gtag('consent', 'update', { analytics_storage: 'granted' }); }
+    b.style.display = 'none';
+  });
+  document.getElementById('cookieReject').addEventListener('click', function() {
+    localStorage.setItem('eph-consent', 'denied');
+    b.style.display = 'none';
+  });</script>
 </body>
 </html>

@@ -195,7 +195,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label>Horario disponible <span class="req">*</span></label>
+                <label>Horario disponible. Si no marcas ninguno, pondremos "flexible".</label>
                 <div class="check-group">
                   <label class="check-item"><input type="checkbox" name="horario[]" value="mananas"> Mañanas</label>
                   <label class="check-item"><input type="checkbox" name="horario[]" value="tardes"> Tardes</label>
@@ -405,7 +405,15 @@
     if (!registroForm.querySelector('input[name="zona[]"]:checked')) {
       zonas.forEach(function(z) { z.checked = true; });
     }
-    var faltan = ['servicio[]', 'horario[]'].filter(function(n) {
+    // Sin horario marcado = flexible (campo oculto, para que la hoja no quede vacía)
+    var flexPrev = registroForm.querySelector('input[name="horario[]"][type="hidden"]');
+    if (flexPrev) { flexPrev.remove(); }
+    if (!registroForm.querySelector('input[name="horario[]"]:checked')) {
+      var flex = document.createElement('input');
+      flex.type = 'hidden'; flex.name = 'horario[]'; flex.value = 'flexible';
+      registroForm.appendChild(flex);
+    }
+    var faltan = ['servicio[]'].filter(function(n) {
       return !registroForm.querySelector('input[name="' + n + '"]:checked');
     });
     if (faltan.length) {

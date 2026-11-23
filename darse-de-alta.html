@@ -218,7 +218,7 @@
                 <div class="form-group">
                   <label>Situación laboral</label>
                   <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:.25rem;">
-                    <label class="radio-item"><input type="radio" name="permiso" value="ciudadano-ue"> Ciudadana/o UE (DNI / NIE)</label>
+                    <label class="radio-item"><input type="radio" name="permiso" value="ciudadano-ue" required> Ciudadana/o UE (DNI / NIE)</label>
                     <label class="radio-item"><input type="radio" name="permiso" value="permiso-vigente"> Permiso de trabajo vigente en España</label>
                     <label class="radio-item"><input type="radio" name="permiso" value="en-tramite"> Permiso en trámite</label>
                   </div>
@@ -390,6 +390,22 @@
   var registroForm = document.getElementById('registroForm');
   registroForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    var faltan = ['servicio[]', 'zona[]', 'horario[]'].filter(function(n) {
+      return !registroForm.querySelector('input[name="' + n + '"]:checked');
+    });
+    if (faltan.length) {
+      var nombres = { 'servicio[]': 'un servicio', 'zona[]': 'una zona', 'horario[]': 'un horario' };
+      var msg = document.getElementById('faltanMsg');
+      if (!msg) {
+        msg = document.createElement('p');
+        msg.id = 'faltanMsg';
+        msg.setAttribute('role', 'alert');
+        msg.style.cssText = 'color:#b42318;font-weight:600;margin:12px 0;';
+        registroForm.querySelector('button[type="submit"]').insertAdjacentElement('beforebegin', msg);
+      }
+      msg.textContent = 'Marca al menos ' + faltan.map(function(n) { return nombres[n]; }).join(', ') + '.';
+      return;
+    }
     var btn = registroForm.querySelector('button[type="submit"]');
     btn.disabled = true;
     btn.textContent = 'Enviando...';

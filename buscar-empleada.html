@@ -322,6 +322,14 @@
     banner.style.display = 'none';
   });
   document.getElementById('fechaBusqueda').value = new Date().toLocaleString('es-ES');
+  function flatForm(form) {
+    // Make solo lee bien las casillas múltiples en formato urlencoded y con un valor por campo
+    var fd = new FormData(form), out = new URLSearchParams();
+    fd.forEach(function(v, k) {
+      if (out.has(k)) { out.set(k, out.get(k) + ', ' + v); } else { out.append(k, v); }
+    });
+    return out;
+  }
   var busquedaForm = document.getElementById('busquedaForm');
   busquedaForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -329,7 +337,7 @@
     btn.disabled = true;
     btn.textContent = 'Enviando...';
     document.getElementById('fechaBusqueda').value = new Date().toLocaleString('es-ES');
-    fetch(busquedaForm.action, { method: 'POST', body: new FormData(busquedaForm) })
+    fetch(busquedaForm.action, { method: 'POST', body: flatForm(busquedaForm) })
       .finally(function() { window.location.href = 'gracias-familia.html'; });
   });
 </script>

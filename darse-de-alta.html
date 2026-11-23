@@ -161,8 +161,9 @@
 
               <div class="form-section-title">Zonas de trabajo</div>
               <div class="form-group">
-                <label>¿En qué zonas puedes trabajar? <span class="req">*</span></label>
+                <label>¿En qué zonas puedes trabajar? Marca todas las que quieras. Si no marcas ninguna, te apuntamos en todas.</label>
                 <div class="check-group">
+                  <label class="check-item"><input type="checkbox" id="zonaTodas"> <strong>Todas (me da igual)</strong></label>
                   <label class="check-item"><input type="checkbox" name="zona[]" value="pozuelo"> Pozuelo de Alarcón</label>
                   <label class="check-item"><input type="checkbox" name="zona[]" value="boadilla"> Boadilla del Monte</label>
                   <label class="check-item"><input type="checkbox" name="zona[]" value="majadahonda"> Majadahonda</label>
@@ -388,9 +389,23 @@
     return out;
   }
   var registroForm = document.getElementById('registroForm');
+  var zonas = registroForm.querySelectorAll('input[name="zona[]"]');
+  var zonaTodas = document.getElementById('zonaTodas');
+  zonaTodas.addEventListener('change', function() {
+    zonas.forEach(function(z) { z.checked = zonaTodas.checked; });
+  });
+  zonas.forEach(function(z) {
+    z.addEventListener('change', function() {
+      zonaTodas.checked = Array.prototype.every.call(zonas, function(x) { return x.checked; });
+    });
+  });
   registroForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    var faltan = ['servicio[]', 'zona[]', 'horario[]'].filter(function(n) {
+    // Sin zona marcada = cualquier zona, para que el cruce con familias la encuentre
+    if (!registroForm.querySelector('input[name="zona[]"]:checked')) {
+      zonas.forEach(function(z) { z.checked = true; });
+    }
+    var faltan = ['servicio[]', 'horario[]'].filter(function(n) {
       return !registroForm.querySelector('input[name="' + n + '"]:checked');
     });
     if (faltan.length) {
